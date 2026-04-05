@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "skills": {
+    "minimax-web-search": {
+      "name": "minimax-web-search",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=minimax-web-search",
+      "source": "skillhub",
+      "version": "1.0.7"
+    },
+    "minimax-usage": {
+      "name": "Minimax Usage",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=minimax-usage",
+      "source": "skillhub",
+      "version": "1.0.1"
+    },
+    "self-improving-agent": {
+      "name": "self-improving-agent",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=self-improving-agent",
+      "source": "skillhub",
+      "version": "1.0.11"
+    },
+    "summarize": {
+      "name": "Summarize",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=summarize",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "ontology": {
+      "name": "Ontology",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=ontology",
+      "source": "skillhub",
+      "version": "0.1.2"
+    },
+    "proactive-agent": {
+      "name": "Proactive Agent",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=proactive-agent",
+      "source": "skillhub",
+      "version": "3.1.0"
+    },
+    "news-summary": {
+      "name": "News Summary",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=news-summary",
+      "source": "skillhub",
+      "version": "1.0.1"
+    },
+    "memory-setup": {
+      "name": "Memory Setup",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=memory-setup",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "tushare-finance": {
+      "name": "tushare-finance",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=tushare-finance",
+      "source": "skillhub",
+      "version": "2.0.6"
+    },
+    "a-stock-analysis": {
+      "name": "A股分时量能分析",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=a-stock-analysis",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "baidu-search": {
+      "name": "baidu web search",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=baidu-search",
+      "source": "skillhub",
+      "version": "1.1.0"
+    },
+    "auto-updater": {
+      "name": "Auto-Updater Skill",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=auto-updater",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "imap-smtp-email": {
+      "name": "imap-smtp-email",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=imap-smtp-email",
+      "source": "skillhub",
+      "version": "0.0.10"
+    },
+    "minimax-understand-image": {
+      "name": "minimax-understand-image",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=minimax-understand-image",
+      "source": "skillhub",
+      "version": "1.0.3"
+    },
+    "stock-kline-analysis": {
+      "name": "akshare-stock-analysis",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=stock-kline-analysis",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "baidu-hot-cn": {
+      "name": "Baidu Hot Cn",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=baidu-hot-cn",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "weibo-hot-trend": {
+      "name": "获取微博热搜榜数据，返回热搜标题、热度值和跳转链接。当用户需要查看微博热搜、微博热点、微博热榜时使用此技能。支持自定义获取条数（默认50条）。",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=weibo-hot-trend",
+      "source": "skillhub",
+      "version": "1.0.0"
+    }
+  }
+}

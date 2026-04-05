@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "skills": {
+    "minimax-understand-image": {
+      "version": "1.0.3",
+      "installedAt": 1774593389616
+    },
+    "minimax-web-search": {
+      "version": "1.0.7",
+      "installedAt": 1774297054952
+    },
+    "minimax-usage": {
+      "version": "1.0.1",
+      "installedAt": 1774593544817
+    },
+    "self-improving-agent": {
+      "version": "1.0.11",
+      "installedAt": 1774593518089
+    },
+    "summarize": {
+      "version": "1.0.0",
+      "installedAt": 1774593783497
+    },
+    "proactive-agent": {
+      "version": "3.1.0",
+      "installedAt": 1774593762054
+    },
+    "news-summary": {
+      "version": "1.0.1",
+      "installedAt": 1774593416181
+    },
+    "memory-setup": {
+      "version": "1.0.0",
+      "installedAt": 1774593571372
+    },
+    "tushare-finance": {
+      "version": "2.0.6",
+      "installedAt": 1773932953362
+    },
+    "a-stock-analysis": {
+      "version": "1.0.0",
+      "installedAt": 1774593809998
+    },
+    "baidu-search": {
+      "version": "1.1.0",
+      "installedAt": 1774593437552
+    },
+    "auto-updater": {
+      "version": "1.0.0",
+      "installedAt": 1774593831306
+    },
+    "imap-smtp-email": {
+      "version": "0.0.10",
+      "installedAt": 1774728198323
+    },
+    "stock-kline-analysis": {
+      "version": "1.0.0",
+      "installedAt": 1774593894787
+    },
+    "baidu-hot-cn": {
+      "version": "1.0.0",
+      "installedAt": 1774606186545
+    },
+    "weibo-hot-trend": {
+      "version": "1.0.0",
+      "installedAt": 1774728203706
+    },
+    "youdaonote-clip": {
+      "version": "1.21.8",
+      "installedAt": 1774647988524
+    },
+    "youdaonote-news": {
+      "version": "1.7.8",
+      "installedAt": 1774648025476
+    },
+    "meitu-skills": {
+      "version": "1.0.16",
+      "installedAt": 1774665174593
+    },
+    "tencent-ima-skill": {
+      "version": "1.0.1",
+      "installedAt": 1774838842258
+    }
+  }
+}
