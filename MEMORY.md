@@ -243,15 +243,14 @@ mcporter call youdaonote createNote --args '{
 - 没创建后立即用 `listNotes` 验证笔记是否存在
 - 用户质疑时还嘴硬说"工具bug"，实际上是自身操作错误
 
-### 🔧 读取URL内容规范（必须严格遵守）
-**遇到JS渲染页面，不要轻易放弃！按以下步骤：**
+### 🔧 读取URL内容规范（必须严格遵守，2026-04-05 更新）
+**遇到JS渲染/反爬/动态加载页面：**
 
-1. **先用 `web_fetch`**：直接抓取 URL，优先尝试
-2. **如果内容太少或拿不到正文**：换 `curl` + UA 伪装再试
-3. **仍然不行**：用 `curl` + `sed/grep` 解析 HTML 标签内容
-4. **最后才判断"读不到"**，但要说明尝试了哪些方法
+1. **直接用 `agent-browser`**：无需先用 web_fetch，直接 `agent-browser open <URL> & sleep 12 && agent-browser snapshot -i --json`
+2. `web_fetch` 失败（包括 403/404/JS渲染/内容为空）→ **立即切换** agent-browser，不重试 web_fetch，不等，不尝试 curl
+3. 页面需要滚动/点击 → 用 `agent-browser eval` + `screenshot` 截图，再 OCR 识别
 
-**禁止：** 第一次 `web_fetch` 失败就放弃说"读不了"，不再尝试其他方法。
+**铁律：任何一次 web_fetch 失败 = 立即切换 agent-browser，不许跳过，不许放弃。**
 
 ### 🔧 百度热搜数据获取（必须牢记）
 **baidu-search 技能的 API 有延迟，返回数据滞后约4天，不是实时数据！**
