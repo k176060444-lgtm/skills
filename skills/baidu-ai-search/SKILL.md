@@ -17,7 +17,7 @@
 | 参数 | 类型 | 必填 | 说明 |
 |------|------|------|------|
 | `messages` | array | ✅ | 消息列表，role=user，content=问题 |
-| `model` | string | ✅ | 模型名，如 `ernie-4.5-turbo-32k`、`deepseek-v3` |
+| `model` | string | ✅ | 模型名，如 `ernie-4.5-turbo-32k`、`deepseek-v3.2-think` |
 | `search_source` | string | 可选 | 搜索引擎版本，默认 `baidu_search_v2` |
 | `stream` | bool | 可选 | 是否流式，默认 false |
 | `enable_deep_search` | bool | 可选 | 深度搜索（最多100个结果），默认 false |
