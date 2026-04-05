@@ -180,6 +180,13 @@ _This file is yours to evolve. As you learn who you are, update it._
 - **推送方式**：直接回复在对话里，不重复用 message 工具发 QQ
 - **新闻来源**：优先抓取有 RSS 的新闻网站（新浪、搜狐、网易、腾讯、央视、新华），RSS 比搜索引擎更快更准
 
+### 🔧 三工具固化规矩（铁律，2026-04-05 新增）
+- **全网搜索 = baidu-search + baidu-ai-search + minimax-web-search**，三工具永久并行，缺一不可
+- **baidu-ai-search**（千帆AI搜索）：AI联网总结 + 来源引用，使用 `deepseek-v3.2-think` 模型
+- **baidu-search**（百度搜索）：原始搜索结果列表
+- **minimax-web-search**（MiniMax搜索）：AI联网总结
+- 权重三者相同，不分主次，并行启动
+
 ### 📰 有明确主题的新闻推送规矩（2026-04-03 新增）
 有明确主题的新闻推送（如"美国登月最新消息"），规则如下：
 1. **不分版块**，直接汇总
