@@ -468,6 +468,13 @@ openclaw message send --media <本地文件路径> --channel qqbot --target <目
 - **本地版块**：精准定位浙江/杭州，不是其他地区
 - **推送方式**：直接回复在对话里，不重复用 message 工具发 QQ
 
+### 🔧 三工具固化规矩（2026-04-05 新增，铁律）
+- **全网搜索 = baidu-search + baidu-ai-search + minimax-web-search**，三工具永久并行，缺一不可
+- **baidu-ai-search**（千帆AI搜索）：AI联网总结 + 来源引用，使用 `deepseek-v3.2-think` 模型
+- **baidu-search**（百度搜索）：原始搜索结果列表
+- **minimax-web-search**（MiniMax搜索）：AI联网总结
+- 权重：三者相同，不分主次，并行启动
+
 ### 🔧 全网搜索教训（必须牢记）
 - **搜索国内应用/服务时**：优先搜中文关键词 + 拼音 + 官方文档，不要只搜英文名
 - **搜不到不等于没有**：换个关键词继续挖，境外网站搜不到就换国内源
