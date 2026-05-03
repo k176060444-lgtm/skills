@@ -3,6 +3,8 @@ import json
 import requests
 import os
 import re
+import time
+import threading
 from datetime import datetime, timedelta
 
 BAIDU_SEARCH_URL = "https://qianfan.baidubce.com/v2/ai_search/web_search"
@@ -20,6 +22,23 @@ def baidu_search(api_key, request_body: dict):
     if "code" in results:
         raise Exception(results["message"])
     return results
+
+
+class RateLimiter:
+    """线程安全的 Token Bucket 限流器，精确控制 QPS。"""
+
+    def __init__(self, qps: float):
+        self.interval = 1.0 / qps  # 每次许可之间的最小间隔（秒）
+        self.lock = threading.Lock()
+        self.last_time = 0.0
+
+    def acquire(self):
+        with self.lock:
+            now = time.time()
+            elapsed = now - self.last_time
+            if elapsed < self.interval:
+                time.sleep(self.interval - elapsed)
+            self.last_time = time.time()
 
 
 if __name__ == "__main__":
@@ -42,6 +61,8 @@ if __name__ == "__main__":
     if not api_key:
         print("Error: BAIDU_API_KEY must be set in environment.")
         sys.exit(1)
+
+    rate_limiter = RateLimiter(2.8)  # 限 2.8 QPS，留余量
 
     # ── count：网页结果数量上限 ────────────────────────────────────
     count = min(max(int(params.get("count", 10)), 1), 50)
@@ -85,6 +106,7 @@ if __name__ == "__main__":
         request_body["search_filter"] = search_filter
 
     try:
+        rate_limiter.acquire()
         raw_result = baidu_search(api_key, request_body)
 
         # 分类：阿拉丁卡由 is_aladdin=True 标识（此字段始终存在，非 cardLimit 开关）
