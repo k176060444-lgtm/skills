@@ -191,20 +191,55 @@ p-解释一下量子计算
 
 ## 通用信息爬取工作流
 
-详见 [MEMORY.md]，核心流程：
+**核心原则：收到任何需要从网页获取信息的任务，必须穷举所有工具直到成功，绝不放弃。**
 
-| 情况 | 工具选择 |
-|------|---------|
-| 我知道目标 URL，静态页面 | `web_fetch` |
-| 我知道目标 URL，JS 渲染页面 | `exec curl` 检查嵌入 JSON → `agent-browser` |
-| 我知道目标 URL，需要登录/动态加载 | `Playwright`（持久化 user_data_dir）|
-| **闲鱼链接** | **xianyu-scraper** 技能（专项优化）|
-| **淘宝/天猫链接** | **taobao-scraper** 技能（专项优化）|
-| 高反爬网站（其他平台） | `nodriver`（终极兜底）|
-| 我不知道 URL / 404 | 按地域选搜索工具找正确 URL：`baidu-search`（国内）/ `tinyfish`（境外）|
-| 以上全部失败 | 截图 + 视觉识别 |
+### 一、工具特性与适用场景
 
-**铁律**：第一步永远是爬取链接内容，不是搜索替代信息。绝不说"访问不了"、"爬不到"。
+#### 网页抓取工具（按能力递增）
+| 工具 | 能力 | 适用场景 |
+|------|------|----------|
+| `web_fetch` | 纯 HTTP 请求，只能抓静态 HTML | 博客、文档、新闻、Wiki 等静态页面 |
+| `exec curl` | 拿原始 HTML，能提取页面嵌入的 JSON 数据 | 检查页面是否有隐藏数据（如 __ICE_PAGE_PROPS__）|
+| `agent-browser` | 无头浏览器，有 Accessibility Tree，支持点击/填表 | SPA/React/Vue 渲染页面、站内搜索、需要交互的场景 |
+| `Playwright` | 模拟真人浏览器，支持真实 UA/viewport/滚动 | 需要登录态、动态加载、需要模拟人类行为的页面 |
+| `nodriver` | 反检测浏览器，navigator.webdriver=false | 淘宝/闲鱼等有反爬检测的网站，Playwright 被识别时的终极方案 |
+
+#### 搜索工具（按地域分）
+| 工具 | 适用地域 | 特点 |
+|------|---------|------|
+| `baidu-search` | 🇨🇳 国内 | 百度 AI 搜索，中文信息最全、支持阿拉丁卡 |
+| `tinyfish` | 🇨🇳 国内 / 🌍 境外 | 中文也能搜；境外搜索主力 |
+| `duckduckgo-search` | 🌍 境外 | 境外备选补充，依赖境外代理出口 |
+| `mmx search` | 🇨🇳 国内 / 🌍 境外 | 备选补充 |
+
+### 二、决策逻辑
+
+**情况 A：我有目标 URL**
+- 静态页面 → web_fetch
+- JS 渲染页面 → curl 检查嵌入 JSON → agent-browser
+- 需要登录/动态加载 → Playwright
+- 高反爬网站 → nodriver
+
+**情况 B：我不知道 URL / 404 了**
+- 国内信息 → baidu-search + tinyfish（双主力）+ mmx（备选补充）
+- 境外信息 → tinyfish（主力）+ duckduckgo-search + mmx（备选补充）
+- 站内搜索 → agent-browser 打开网站搜索框
+
+**情况 C：以上全部失败**
+- 截图 + 视觉识别
+
+### 三、核心原则
+
+1. 第一步永远是爬取链接内容，不是搜索替代信息
+2. 爬取优先级高于搜索
+3. 绝不说"访问不了"、"爬不到"、"无法读取"
+4. 同一信息在不同平台可能不同，必须确认用户要哪个源
+5. 输出时标注数据来源、时效性
+
+### 四、已验证的成功经验
+- **Playwright 闲鱼**：真实 Windows UA + zh-CN locale + 1280x800 viewport → goto → networkidle → 滚动 → inner_text，成功提取 22 个套餐配置和价格
+- **百炼定价页**：ICE SSR 渲染，内容嵌在 `__ICE_PAGE_PROPS__` JSON 里，用正则提取后解析
+- **agent-browser 站内搜索**：导航到首页 → 搜索框输入关键词 → 点击搜索结果链接，找到隐藏的文档页
 
 ## 注意事项
 
