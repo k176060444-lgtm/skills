@@ -250,7 +250,7 @@ p-解释一下量子计算
 
 ## 工具与技能标注规矩（行为规范索引）
 
-规范位置：SOUL.md / AGENTS.md / MEMORY.md（永久铁律）
+规范位置：详见 AGENTS.md「行为规范（铁律）」章节
 
 | 调用类型 | 正确标注 |
 |---------|---------|
@@ -399,7 +399,7 @@ sock.close()
 |------|-----|
 | 地址 | zszn6.kingjinjing.top:44555 |
 | 用户 | Administrator |
-| 密码 | Mf9@kpL2!Qx7#WvN3&rT |
+| 密码 | 存于 `~/.openclaw/.env` 环境变量 `COMPANY_PC_SMB_PASSWORD` |
 | 协议 | SMB over IPv6（Lucky 端口转发 44555→445） |
 
 **关机方法**：通过 SCMR 创建临时服务执行 `shutdown.exe /s /t 0`
@@ -412,7 +412,8 @@ from impacket.dcerpc.v5.transport import DCERPCTransportFactory
 target = 'zszn6.kingjinjing.top'
 port = 44555
 username = 'Administrator'
-password = 'Mf9@kpL2!Qx7#WvN3&rT'
+import os
+password = os.environ['COMPANY_PC_SMB_PASSWORD']
 
 stringbinding = r'ncacn_np:%s[\pipe\svcctl]' % target
 transport = DCERPCTransportFactory(stringbinding)
