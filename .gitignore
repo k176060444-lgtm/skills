@@ -1,0 +1,11 @@
+# Skills 仓库 .gitignore
+# 只跟踪 skill 目录，忽略所有根目录文件
+
+# 忽略所有根目录文件
+*
+
+# 保留 .gitignore 自身
+!.gitignore
+
+# 保留所有子目录（skill 目录）
+!*/
