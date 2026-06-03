@@ -151,8 +151,8 @@ python3 ~/.openclaw/workspace/skills/qweather/scripts/qweather.py usage
 
 ## API配置
 
-- **Host**: `na6heya3mr.re.qweatherapi.com`
-- **Key**: `2e5290bfa33242d2bf74ab196aae6e19`
+- **Host**: `$QWEATHER_API_HOST`（环境变量）
+- **Key**: `$QWEATHER_API_KEY`（环境变量）
 - **免费额度**: 每日1000次
 - **天气预警API**: `/weatheralert/v1/current/{lat}/{lon}?key=` （无需JWT）
 - **空气质量API**: `/airquality/v1/current/{lat}/{lon}?key=` （无需JWT）
